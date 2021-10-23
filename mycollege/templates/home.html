@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: space-evenly;
+            /* border: 2px solid blue; */
+            background-color: rgb(252, 246, 246);
+            padding: 15px;
+        }
+        
+        
+        .box{
+            margin: 5px;
+            border-radius: 5px;
+            border: 2px solid rgb(77, 72, 72);
+            box-shadow: 2px 4px 2px rgb(165, 150, 150);
+            padding: 0px 0px;
+           
+        }
+        div .heading{
+            display: flex;
+            background-color: lavender;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn a{
+            margin: 13px 55px;
+            border-radius: 4px;
+            padding: 5px 33px;
+            background-color:  #17a2b8;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn a:hover{
+            background-color: #085f6d;
+        }
+        
+        div .btn{
+            margin: 20px 18px;
+        }
+
+        .notification{
+            display: flex;  /* it will makesure the data will not go outside the block*/
+            /* border: 2px solid red; */
+            background-color: rgb(252, 246, 246);
+            margin-top: 20px;
+            height: 90px;
+            width: 600px;
+            padding: 5px;
+            font-size: large;
+        }
+
+        .note{
+            padding: 4px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to my college</h1>
+
+    <div class="container">
+        <div class="box">
+            <div>
+                <div class="heading">
+                    <h4>Student</h4>
+                </div>
+                <div class="btn">
+                    <a href="{% url 'student_register' %}">Create Account</a>    
+                    <a href="{% url 'student_login' %}">Login</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="box">
+            <div class="heading">
+                <h4>College</h4>
+            </div>
+            <div class="btn">
+                <a href="{% url 'staff_login' %}">Login</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="heading">
+                <h4>admin</h4>
+            </div>
+            <div class="btn">
+
+                <a href="{% url 'admins_login' %}">Login</a>
+            </div>
+        </div>
+    </div>
+    <h1>Notifications</h1>
+    <div class="notification">
+        <marquee behavior="" direction="up" onmouseover="this.stop();" onmouseout="this.start();">
+            {% for i in lst %}
+            <div class="note">
+            {{i.date}} - {{i.notification}}
+            <hr>
+            </div>
+            {% endfor %}
+            
+        </marquee> 
+    </div>
+    
+
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+{% extends 'students/base.html'%}
+
+{% block mystyle %}
+
+{% endblock %}
+
+
+{% block body %}
+    {% for c in course %}
+        <div style="border: 2px solid red;">
+            <h1>{{c}}</h1>
+            {% for i in staff %}
+                {% if c == i.course %}
+                    <a href="{% url 'mystaff_profile' pk=i  ad=admin %}"><h5>{{i.name}}</h5></a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,93 @@
+  
+{% extends 'students/base.html'%}
+
+    
+{% block mystyle %}
+
+*{
+    font-size: large;
+}
+
+.container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        
+        form{
+            box-shadow: 15px 10px 9px lavender;;
+            border: 2px solid rgb(39, 36, 36);
+            padding: 15px;
+        }
+        
+        .input-group{
+            margin: 13px;
+        }
+        
+        input{
+            margin-top: 3px;
+            width:400px; font-size:14pt;
+            height: 30px;
+            padding: 3px 13px;
+            background-color: rgba(252, 248, 248, 0.801);
+        }
+        
+        input[type=submit]{
+            background-color: rgb(20, 128, 61);
+            color: white;
+            margin: 7px 11px;
+            height: 40px;
+            width: 432px;
+        }
+
+        input[type=submit]:hover{
+            cursor: pointer;
+            background-color:rgb(38, 209, 104);
+        }
+        
+        span{
+            font-size: smaller;
+            padding: 6px 112px;
+            margin: 0px 9px;
+        }
+        
+    
+{% endblock %}
+    
+{% block body %}
+    {% for msg in messages %}
+    <h1 style="color: red;">{{msg}}</h1>
+    {% endfor %}
+    
+    <h1 style="text-align: center;">Leave Appliction</h1>
+
+    <div class="container">
+
+        <form action="" method="POST">   {% csrf_token %}
+            <div class="input-group">
+                <label for="re">Reason</label><br>
+                <input type="text" name="re" id="re">
+            </div>
+            
+            
+            <div class="input-group">
+                <label for="from">From Date</label><br>
+                <input type="text" name="from" id="from">
+            </div>
+            
+            <div class="input-group">
+                <label for="to">To Date</label><br>
+                <input type="text" name="to" id="to" >
+            </div>
+            
+            
+            <div class="submit-group">
+                <input type="submit" value="Send">
+            </div>
+            
+            
+        </form>
+    </div>
+    
+{% endblock %}

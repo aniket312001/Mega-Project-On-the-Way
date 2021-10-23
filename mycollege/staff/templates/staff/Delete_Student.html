@@ -1,0 +1,16 @@
+{% extends 'students/base.html'%}
+
+{% block mystyle %}
+{% endblock %}
+
+
+{% block body %}
+    
+    <h2>Are You Sure want to delete {{student}}?</h2>
+    
+    <form action="" method="POST">  {% csrf_token %}
+
+        <input type="submit" value="Sure">
+        <a href="#" style="border: 1px solid black;">Cancel</a>
+    </form>
+{% endblock %}

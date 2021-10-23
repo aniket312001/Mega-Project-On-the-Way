@@ -1,0 +1,41 @@
+{% extends 'students/base.html'%}
+
+{% block mystyle %}
+<style>
+    .main{
+        display: flex;
+        flex-direction: column;
+    }
+    .container{
+        border: 2px solid red;
+        margin: 5px;
+        padding: 50px;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}
+
+
+{% block body %}
+    
+    <div class="main">
+
+      
+        {% for j in leave %}
+            <a href="{% url 'mystudent_profile' pk=j.student %}">
+
+                <div class="container">
+                    
+                    <h1>Name - {{j.student.name}}</h1>
+                    <h5>Aappied Date -{{j.appied_date}} </h5>
+                    <h1>Reason</h1><p>{{j.reason}}</p>
+                    <h4>From - {{j.from_date}}</h4>
+                    <h4>To - {{j.to_date}}</h4>
+                    
+                </div>
+            </a>
+        {% endfor %}
+      
+
+    </div>
+{% endblock %}

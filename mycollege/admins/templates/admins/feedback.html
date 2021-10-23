@@ -1,0 +1,35 @@
+{% extends 'students/base.html'%}
+
+{% block mystyle %}
+<style>
+     .main{
+        display: flex;
+        flex-direction: column;
+    }
+    .container{
+        border: 2px solid red;
+        margin: 5px;
+        padding: 50px;
+        border-radius: 5px;
+    } 
+
+   
+</style>
+{% endblock %}
+
+
+{% block body %}
+  <div class="main">
+
+      {% for i in feed reversed %}
+      <a href="{% url 'mystudent_profile' pk=i.student ad=admin %}"><div class="container">
+          <h1>Name - {{i.student.name}}</h1>
+          <h1>Course - {{i.course.name}}</h1>
+          <h1>Complain - {{i.complain}}</h1>
+          <h1>Date - {{i.appied_date}}</h1>
+          
+        </div></a>
+          {% endfor %}
+    </div>
+  
+{% endblock %}

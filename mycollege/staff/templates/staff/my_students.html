@@ -1,0 +1,15 @@
+{% extends 'students/base.html'%}
+
+{% block mystyle %}
+{% endblock %}
+
+
+{% block body %}
+    
+    {% for i in student %}
+        <h1>
+            <a href="{% url 'mystudent_profile' pk=i.name %}">{{i.name}}</a>
+        </h1>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            font-size: large;
+        }
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        form{
+            box-shadow: 15px 10px 9px lavender;;
+            border: 2px solid rgb(39, 36, 36);
+            padding: 15px;
+        }
+
+        .input-group{
+            margin: 13px;
+        }
+
+        input{
+            margin-top: 3px;
+            width:400px; font-size:14pt;
+            height: 30px;
+            padding: 3px 13px;
+            background-color: rgba(252, 248, 248, 0.801);
+        }
+
+        input[type=submit]{
+            background-color: rgb(20, 128, 61);
+            color: white;
+            margin: 7px 11px;
+            height: 40px;
+            width: 432px;
+        }
+
+        input[type=submit]:hover{
+            cursor: pointer;
+            background-color:rgb(38, 209, 104);
+        }
+
+        span{
+            font-size: smaller;
+            padding: 6px 112px;
+            margin: 0px 9px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    {% for msg in messages %}
+        <h1 style="color: red;">{{msg}}</h1>
+    {% endfor %}
+
+    <h1 style="text-align: center;">Student Register</h1>
+
+    <div class="container">
+
+        <form action="" method="POST">   {% csrf_token %}
+            <div class="input-group">
+                <label for="name">Name</label><br>
+                <input type="text" name="name" id="name">
+            </div>
+            
+            <div class="input-group">
+                <label for="roll">RollNo</label><br>
+                <input type="text" name="rollno" id="roll">
+            </div>
+            
+            <div class="input-group">
+                <label for="mycls">Class</label><br>
+                <select name="myclass" id="mycls">
+                    {% for i in class %}
+                        <option value={{i}}>{{i}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="cls">Course</label><br>
+                <select name="course" id="cls">
+                    {% for i in course %}
+                        <option value={{i}}>{{i}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            
+            <div class="input-group">
+                <label for="number">Phone</label><br>
+                <input type="text" name="phone" id="number">
+            </div>
+            
+            <div class="input-group">
+                <label for="Address">Address</label><br>
+                <input type="text" name="addr" id="Address" >
+            </div>
+            
+            
+            <div class="input-group">
+                <label for="email">Email</label><br>
+                <input type="email" name="email" id="email">
+            </div>
+            
+            <div class="input-group">
+                <label for="pwd">Set Password</label><br>
+                <input type="password" name="pwd" id="pwd">
+            </div>
+            
+            <div class="input-group">
+                <label for="pwd2">Re-Enter Password</label><br>
+                <input type="password" name="pwd2" id="pwd2">
+            </div>
+            
+            <div class="submit-group">
+                <input type="submit" value="SignUp">
+            </div>
+            
+            <span>Already have a account? <a href="{% url 'student_login' %}">Login</a></span>
+        </form>
+    </div>
+</body>
+</html>

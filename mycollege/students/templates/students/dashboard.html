@@ -1,0 +1,31 @@
+  
+{% extends 'students/base.html'%}
+
+{% block mystyle %}
+{% endblock %}
+
+{% block body %}
+<h1>Name - {{student.name}}</h1>
+<h1>Rollno - {{student.rollno}}</h1>
+<h1>Class - {{student.class_division}}</h1>
+<h1>Course - {{student.course.name}}</h1>
+
+{% for i in staff %}
+    {% if i.class_division == student.class_division and i.course.name == student.course.name %}  <!-- donot use is, use == coz it is different variable and have different address  -->
+        <h1>Class Teacher - {{i.name}}</h1> 
+    {% endif %}
+{% endfor %}
+
+<h1>Email - {{student.email}}</h1>
+<h1>Address - {{student.address}}</h1>
+<h1>Phone - {{student.phone}}</h1>
+ 
+{% if value != "student" %}
+    {% if value == 'admin' %}
+        <a href="{% url 'delete_Student' pk=student ad=admin %}">Delete This Account</a>
+    {% else %}
+        <a href="{% url 'delete_S' pk=student %}">Delete This Account</a>
+    {% endif %}
+{% endif %}
+
+{% endblock %}

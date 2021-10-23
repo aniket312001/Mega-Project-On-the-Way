@@ -1,0 +1,38 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> -->
+
+
+{% extends 'students/base.html'%}
+
+{% block mystyle %}
+{% endblock %}
+
+{% block body %}
+<!-- 
+    {% if messages %}   
+        {% for msg in messages %}
+        <h1 style="color: red;">{{msg}}</h1>
+        {% endfor %}
+    {% endif %} -->
+
+    <h1>hello {{staff.name}}</h1>
+    <h1>staff_id - {{staff.staff_id}}</h1>
+    <h1>class_division - {{staff.class_division}}</h1>
+    <h1>class - {{staff.course.name}}</h1>
+    <h1>phone - {{staff.phone}}</h1>
+    <h1>address - {{staff.address}}</h1>
+    <h1>email - {{staff.email}}</h1>
+ 
+    {% if value == "admin" %}
+        <a href="{% url 'delete_Staff' pk=staff ad=admin %}">Delete This Account</a>
+    {% endif %}
+
+
+{% endblock %}
